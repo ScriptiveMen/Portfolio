@@ -16,10 +16,17 @@ function spanArchitecture() {
 }
 spanArchitecture();
 
+let xValue;
+if (window.innerWidth <= 767) {
+  xValue = 40; // Mobile ke liye
+} else {
+  xValue = 100; // PC ke liye
+}
+
 let tl = gsap.timeline();
 
 tl.from(".child>span", {
-  x: 100,
+  x: xValue,
   duration: 0.7,
   stagger: 0.1,
   ease: Power3.easeInOut,
