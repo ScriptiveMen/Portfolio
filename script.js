@@ -40,10 +40,3 @@ tl.from(".child>span", {
     delay: -0.7,
     ease: Circ.easeInOut,
   });
-//   .to(".green", {
-//     height: "100%",
-//     top: 0,
-//     duration: 1,
-//     // delay: -0.7,
-//     ease: Circ.easeInOut,
-//   });
