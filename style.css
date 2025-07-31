@@ -22,6 +22,8 @@
   --pri: #fcfaf8;
   --sec: #151515;
   --green: #14cf92;
+  --blackText: #383838;
+  --grayText: #a2a2a2;
 }
 
 * {
@@ -29,10 +31,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Gilroy";
-}
-
-html {
-  font-size: clamp(10px, 2vw, 18px);
 }
 
 html,
@@ -72,7 +70,8 @@ body {
   height: 100vh;
   background-color: #151515;
   color: #fcfaf8;
-  position: relative;
+  position: fixed;
+  z-index: 999;
 }
 
 .loader .svg {
@@ -96,7 +95,7 @@ body {
 
 .topheading h5 {
   text-transform: uppercase;
-  font-size: 0.79rem;
+  font-size: 0.8rem;
   font-weight: 400;
   text-align: center;
 }
@@ -105,7 +104,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  font-size: 3.5rem;
+  font-size: 4vw;
   width: 100%;
   display: flex;
   align-items: center;
@@ -114,25 +113,227 @@ body {
 }
 
 .green {
-  position: absolute;
+  position: fixed;
+  z-index: 999;
   height: 0%;
   top: 100%;
   width: 100%;
   background-color: var(--green);
 }
-.home {
-  height: 0;
+
+#home {
+  height: 100vh;
+  width: 100%;
+  background-color: var(--pri);
+  padding: 0 4.8rem;
+}
+
+#home nav {
+  padding: 3.3rem 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#home nav a {
+  text-decoration: none;
+  color: #383838;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  position: relative;
+}
+
+#home nav a .line {
+  display: inline-block;
+  height: 1px;
   position: absolute;
   bottom: 0;
-  background-color: purple;
+  background-color: black;
+}
+
+#line1 {
+  left: 0;
+  width: 0%;
+  transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
+  transition-delay: 0.1s;
+}
+#line2 {
+  right: 0;
+  transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
+  width: 100%;
+}
+
+#home nav a:hover #line1 {
+  width: 100%;
+}
+#home nav a:hover #line2 {
+  width: 0%;
+}
+
+.headings {
+  padding-top: 6rem;
+  padding-bottom: 1rem;
+  position: relative;
+}
+.headings .text h1 {
+  line-height: 0.9;
+  font-size: 13vw;
+  font-weight: 300;
+  color: var(--blackText);
+}
+.headings .text1 {
+  text-align: left;
+  display: flex;
+}
+.headings .text1 .sub-headings {
+  width: 100%;
+  padding-top: 2vw;
+  padding-left: 2vw;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  gap: 8vw;
+}
+
+.headings .text1 .sub-headings span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--grayText);
+}
+
+.headings .text2 {
+  display: flex;
+  justify-content: space-between;
+}
+.headings .text2 h1 {
+  width: 100%;
+}
+.headings .text2 .visual {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  align-items: end;
+}
+.headings .text2 .visual .circle {
+  width: 4.5vw;
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+  background-color: white;
+}
+.headings .text2 .visual .circle img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.headings .text2 .visual .svg {
+  width: 100%;
+  text-align: right;
+}
+
+.headings .text2 .visual .svg svg {
+  width: 25vw;
+}
+
+.headings .text2 .visual .svg .dash {
+  display: none;
+}
+
+.svg svg path,
+.svg svg polyline {
+  stroke: var(--green);
 }
 
 @media (max-width: 768px) {
-  .topheading h5 {
-    font-size: 1rem;
+  .main-head {
+    font-size: 2rem;
   }
 
-  .loader .svg svg {
-    height: 4rem;
+  #home * {
+    color: inherit;
+  }
+
+  #home {
+    padding: 0 2rem;
+    background-color: var(--sec);
+    color: var(--pri);
+  }
+  #home nav {
+    padding: 3rem 0;
+  }
+
+  #home nav a {
+    color: var(--pri);
+  }
+  #home nav a .line {
+    background-color: var(--pri);
+  }
+
+  #home nav a:nth-child(2),
+  #home nav a:nth-child(3) {
+    display: none;
+  }
+
+  #line1,
+  #line2 {
+    transition: none !important;
+  }
+
+  #home nav a:hover #line1 {
+    width: 0% !important;
+  }
+
+  #home nav a:hover #line2 {
+    width: 100% !important;
+  }
+
+  .headings {
+    padding-top: 3rem;
+    padding-bottom: 8rem;
+  }
+
+  .headings .text2 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .headings .text2 .visual .svg {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 1rem;
+  }
+  .headings .text2 .visual .svg .dash {
+    display: block;
+    height: 0.4rem;
+    background-color: var(--green);
+    width: 20%;
+  }
+  .headings .text2 .visual .svg svg {
+    width: 45vw;
+  }
+
+  .headings .text2 .visual .circle {
+    visibility: hidden;
+  }
+
+  .headings .text h1 {
+    line-height: 0.9;
+    font-size: 20vw;
+  }
+
+  .headings .text1,
+  .headings .text2 {
+    text-align: left;
+  }
+
+  .headings .text1 .sub-headings {
+    position: absolute;
+    justify-content: start;
+    bottom: 0;
+  }
+  .headings .text1 .sub-headings span {
+    color: var(--grayText) !important;
   }
 }
