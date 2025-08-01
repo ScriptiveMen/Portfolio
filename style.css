@@ -66,6 +66,7 @@ body {
 }
 
 .loader {
+  /* display: none; */
   width: 100%;
   height: 100vh;
   background-color: #151515;
@@ -239,6 +240,9 @@ body {
 .headings .text2 .visual .svg .dash {
   display: none;
 }
+.headings .text2 .reveal .parent .child {
+  line-height: 1;
+}
 
 .svg svg path,
 .svg svg polyline {
@@ -304,11 +308,17 @@ body {
     justify-content: end;
     gap: 1rem;
   }
+  .headings .text2 .visual {
+    padding-right: 1rem;
+  }
+
   .headings .text2 .visual .svg .dash {
     display: block;
     height: 0.4rem;
     background-color: var(--green);
     width: 20%;
+    transform: scaleX(0);
+    transform-origin: left;
   }
   .headings .text2 .visual .svg svg {
     width: 45vw;
@@ -335,5 +345,8 @@ body {
   }
   .headings .text1 .sub-headings span {
     color: var(--grayText) !important;
+  }
+  .sub-headings .parent .child {
+    text-align: left;
   }
 }
