@@ -31,7 +31,7 @@ function defaultSetters() {
 function loaderAnimation() {
   let xValue;
   if (window.innerWidth <= 767) {
-    xValue = 40; // Mobile ke liye
+    xValue = 60; // Mobile ke liye
   } else {
     xValue = 100; // PC ke liye
   }
@@ -40,15 +40,18 @@ function loaderAnimation() {
 
   tl.from(".loader .child>span", {
     x: xValue,
-    duration: 0.7,
+    duration: 1,
     stagger: 0.1,
-    ease: Power3.easeInOut,
+    ease: "elastic.out(1, 0.75)",
   })
-    .from(".loader .child>span:nth-child(2), .child>span:last-child", {
-      opacity: 0,
-      duration: 0.7,
-      delay: -0.5,
-    })
+    .from(
+      ".loader .child>span:nth-child(2), .child>span:last-child",
+      {
+        opacity: 0,
+        duration: 0.7,
+      },
+      "<"
+    )
     .to(".loader .parent .child", {
       y: "-100%",
       duration: 0.8,

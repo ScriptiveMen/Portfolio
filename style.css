@@ -19,8 +19,11 @@
   --fs-md: 1.5rem;
   --fs-sm: 1rem;
   --fs-xs: 0.875rem;
+  --main-padding: 0 4.8rem;
   --pri: #fcfaf8;
+  --pri2: #f2f2f2;
   --sec: #151515;
+  --sec2: #282828;
   --green: #14cf92;
   --blackText: #383838;
   --grayText: #a2a2a2;
@@ -35,7 +38,7 @@
 
 html,
 body {
-  height: 100%;
+  /* height: 100%; */
   width: 100%;
 }
 #main {
@@ -62,7 +65,7 @@ body {
   font-family: Maz;
 }
 .cur-gr {
-  color: var(--green);
+  color: var(--green) !important;
 }
 
 .loader {
@@ -114,6 +117,7 @@ body {
 }
 
 .green {
+  /* display: none; */
   position: fixed;
   z-index: 999;
   height: 0%;
@@ -123,10 +127,9 @@ body {
 }
 
 #home {
-  min-height: 100vh;
   width: 100%;
   background-color: var(--pri);
-  padding: 0 4.8rem;
+  padding: var(--main-padding);
 }
 
 #home nav {
@@ -249,6 +252,194 @@ body {
   stroke: var(--green);
 }
 
+.hero2 {
+  width: 100%;
+  margin-top: 10vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.hero2 .text h2 {
+  text-transform: uppercase;
+  font-size: 2.2vw;
+  font-weight: 500;
+  color: var(--blackText);
+  line-height: 0.99;
+}
+.hero2 .text p {
+  display: none;
+}
+
+.hero2 .text h2 span {
+  text-transform: capitalize;
+}
+
+.hero2 .text .contact-div {
+  display: none;
+}
+
+.hero2 .cards {
+  width: 70%;
+  height: 35vw;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero2 .cards .card {
+  position: absolute;
+  z-index: 50;
+  top: 50%;
+  left: 50%;
+  width: 28vw;
+  height: 45vw;
+  border-radius: 2vw;
+  transition: all cubic-bezier(0.19, 1, 0.22, 1) 2s;
+}
+
+.card1 {
+  transform: translate(-70%, -50%) rotate(-7deg);
+  background-image: url(./public/assets/card1.a0552dbc.png);
+  background-size: cover;
+  filter: grayscale();
+}
+
+.card2 {
+  transform: translate(-40%, -40%) rotate(0deg);
+  background-image: url(./public/assets/card2.cfc820ab.png);
+  background-size: cover;
+  filter: grayscale();
+}
+.card3 {
+  transform: translate(-15%, -30%) rotate(5deg);
+  background-image: url(./public/assets/card3.b705d81b.png);
+  background-size: cover;
+  filter: grayscale();
+}
+
+.card1:hover {
+  filter: grayscale(0);
+}
+.card2:hover {
+  filter: grayscale(0);
+}
+.card3:hover {
+  filter: grayscale(0);
+}
+
+.works {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--pri2);
+  position: relative;
+  padding: var(--main-padding);
+  padding-top: 20vw;
+}
+
+.works::before {
+  position: absolute;
+  top: -6%;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 10vw;
+  background-image: url(./public/assets/work-wave.svg);
+  background-size: cover;
+  transform: rotate(180deg);
+}
+
+.works .help {
+  width: 100%;
+  padding: 2vw 0;
+  display: flex;
+  justify-content: start;
+}
+
+.works .help .left {
+  width: 10%;
+  position: relative;
+}
+.works .help .left svg {
+  stroke: rgba(65, 65, 65, 0.3);
+  position: absolute;
+  top: -70%;
+}
+
+.works .help .right {
+  width: 90%;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 1.5vw;
+  padding-left: 4vw;
+}
+.works .help .right p {
+  font-size: 0.78rem;
+  color: var(--grayText);
+}
+
+.works .help .right h3 {
+  font-size: 1.3rem;
+  font-weight: 200;
+}
+
+.partition {
+  width: 100%;
+  padding-left: 4vw;
+  padding: 8vw 0;
+  display: flex;
+  align-items: center;
+  padding-left: 4vw;
+  justify-content: end;
+}
+.partition .line {
+  width: 90%;
+  height: 1px;
+  background-color: var(--grayText);
+}
+
+.featuredworks {
+  width: 100%;
+  position: relative;
+  padding-bottom: 30vw;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding-left: 4vw;
+  padding-right: 5vw;
+}
+.featuredworks .text {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: row;
+}
+.featuredworks .text .num {
+  font-size: 1.3vw;
+}
+
+.featuredworks h3 {
+  color: var(--blackText);
+  font-size: 8.2vw;
+  font-weight: 300;
+  line-height: 0.9;
+}
+.featuredworks h3:nth-child(2) {
+  text-align: right;
+}
+
+.featuredworks svg * {
+  stroke: rgba(65, 65, 65, 0.3);
+}
+.featuredworks svg {
+  position: absolute;
+  top: 5%;
+  right: 10%;
+  transform: rotate(90deg);
+}
+
 @media (max-width: 768px) {
   .main-head {
     font-size: 2rem;
@@ -348,5 +539,115 @@ body {
   }
   .sub-headings .parent .child {
     text-align: left;
+  }
+
+  .hero2 {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: start;
+    justify-content: start;
+    margin-top: 45vw;
+    padding-bottom: 15vw;
+    gap: 60vw;
+  }
+  .hero2 .text h2 {
+    font-size: 7.5vw;
+  }
+  .hero2 .text p {
+    display: block;
+    text-transform: uppercase;
+    font-size: 3vw;
+    color: var(--grayText) !important;
+    padding-bottom: 5vw;
+  }
+
+  .hero2 .text .contact-div {
+    display: block;
+    padding: 15vw 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+  }
+  .hero2 .text .contact-div a {
+    text-transform: uppercase;
+    font-size: 3.3vw;
+  }
+
+  .hero2 .cards {
+    width: 100%;
+    height: 40vw;
+  }
+  .hero2 .cards .card {
+    left: 44%;
+    width: 53vw;
+    height: 84vw;
+    border-radius: 5vw;
+  }
+
+  .works::before {
+    display: none;
+  }
+
+  .works {
+    background-color: var(--sec2);
+    padding: 50vw 1.5rem;
+    color: #ffff;
+  }
+
+  .works .help .left svg {
+    stroke: white;
+    width: 12vw;
+  }
+
+  .partition {
+    width: 100%;
+    padding: 25vw 0;
+  }
+  .partition .line {
+    width: 100%;
+    height: 1px;
+    background-color: #545353;
+  }
+
+  .featuredworks {
+    width: 100%;
+    position: relative;
+    padding-left: 0;
+    padding-bottom: 30vw;
+    padding-right: 0;
+    display: flex;
+  }
+
+  .featuredworks .text {
+    width: 100%;
+    display: flex;
+    align-items: normal;
+    gap: 0rem;
+    flex-direction: column;
+  }
+
+  .featuredworks h3 {
+    color: white;
+    font-size: 19vw;
+    font-weight: 300;
+    line-height: 0.9;
+  }
+  .featuredworks h3:nth-child(2) {
+    text-align: right;
+  }
+
+  .featuredworks svg * {
+    stroke: white;
+  }
+  .featuredworks svg {
+    position: absolute;
+    top: 70%;
+    left: 10%;
+    transform: rotate(45deg);
+  }
+
+  .featuredworks .text .num {
+    display: none;
   }
 }
