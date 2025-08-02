@@ -642,8 +642,9 @@ body {
   }
   .featuredworks svg {
     position: absolute;
-    top: 70%;
+    top: 60%;
     left: 10%;
+    width: 15vw;
     transform: rotate(45deg);
   }
 
