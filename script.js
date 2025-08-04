@@ -156,7 +156,49 @@ function animateHomepage() {
     });
 }
 
+function LomotiveInitilizer() {
+  const scroll = new LocomotiveScroll({
+    el: document.querySelector("#main"),
+    smooth: true,
+    smartphone: {
+      smooth: true,
+    },
+    tablet: {
+      smooth: true,
+    },
+  });
+}
+
+function buttonAnimation() {
+  const blob = document.querySelector(".blob");
+  const button = document.querySelector(".work-footer .button");
+
+  button.addEventListener("mouseenter", () => {
+    gsap.killTweensOf(blob);
+    gsap.to(blob, {
+      width: "100%",
+      duration: 0.3,
+      opacity: 1,
+      ease: "power.in",
+    });
+  });
+  button.addEventListener("mouseleave", () => {
+    gsap.killTweensOf(blob);
+    gsap.to(blob, {
+      opacity: 0,
+      duration: 0.4,
+      ease: "power.in",
+
+      onComplete: () => {
+        gsap.set(blob, { width: "0%" });
+      },
+    });
+  });
+}
+
 spanArchitecture();
 defaultSetters();
 loaderAnimation();
 animateHomepage();
+LomotiveInitilizer();
+buttonAnimation();
